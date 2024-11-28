@@ -1,0 +1,19 @@
+<div>
+    <input [(ngModel)]="petNameFilter" placeholder="Buscar por nombre" (input)="onFilterByName()" />
+    <input [(ngModel)]="minAgeFilter" type="number" placeholder="Edad mínima" (input)="onFilterByAge()" />
+    <input [(ngModel)]="maxAgeFilter" type="number" placeholder="Edad máxima" (input)="onFilterByAge()" />
+    
+    <button (click)="onSortByAge()">Ordenar por edad</button>
+    <button (click)="onSortByName()">Ordenar por nombre</button>
+    
+    <ul>
+      <li *ngFor="let pet of pets">
+        {{ pet.name }} - {{ pet.age }} años
+        <button (click)="onDeletePet(pet.name)">Eliminar</button>
+        <!-- Asegúrate de pasar un objeto completo de tipo Pet -->
+    <button (click)="onUpdatePet(pet.name, { name: 'rosita', age: pet.age, type: pet.type, breed: pet.breed })">
+    Editar
+  </button>
+      </li>
+    </ul>
+  </div>
